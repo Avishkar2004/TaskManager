@@ -120,11 +120,11 @@ export default function TaskItem({ task, onDelete, onUpdate }: TaskItemProps) {
             <div className="flex items-center gap-2 pt-1">
               <p className="text-xs text-muted-foreground font-medium">
                 Created {new Date(task.createdAt).toLocaleDateString('en-US', { 
-                  month: 'short', 
-                  day: 'numeric', 
-                  year: 'numeric' 
-                })}
-              </p>
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+              })}
+            </p>
               {task.completed && (
                 <span className="px-2 py-0.5 text-xs font-medium bg-green-100 text-green-700 rounded-full">
                   Completed

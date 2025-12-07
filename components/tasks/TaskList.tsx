@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import TaskItem from "./TaskItem";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -23,7 +23,7 @@ export default function TaskList() {
   const { toast } = useToast();
 
   // Fetch tasks from API
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       const response = await fetch("/api/tasks");
       if (response.ok) {
@@ -45,12 +45,12 @@ export default function TaskList() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [toast]);
 
   // Load tasks on component mount
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [fetchTasks]);
 
   // Listen for task list refresh events
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function TaskList() {
     return () => {
       window.removeEventListener("task-list-refresh", handleRefresh);
     };
-  }, []);
+  }, [fetchTasks]);
 
   // Handle task deletion
   const handleDelete = async (taskId: string) => {
@@ -123,7 +123,7 @@ export default function TaskList() {
         </h3>
         <p className="text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
           Get started by creating your first task! Click the{" "}
-          <span className="font-semibold text-blue-600">"Add Task"</span> button above to begin organizing your life.
+          <span className="font-semibold text-blue-600">&quot;Add Task&quot;</span> button above to begin organizing your life.
         </p>
       </div>
     );
