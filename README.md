@@ -36,7 +36,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Avishkar2004/TaskManager
 cd task-manager-app
 ```
 
@@ -148,35 +148,14 @@ The application will be automatically deployed and available at a Vercel URL.
 - **Responsive Design**: Mobile-friendly UI using Tailwind CSS
 - **Accessibility**: Semantic HTML and ARIA labels where appropriate
 
-## Future Enhancements
-
-- [ ] Add task categories/tags
-- [ ] Add due dates and reminders
-- [ ] Add task search and filtering
-- [ ] Add task sharing capabilities
-- [ ] Add dark mode toggle
-- [ ] Add unit and integration tests
-- [ ] Add AI-powered task suggestions
-
 ## Troubleshooting
 
 ### MongoDB Connection Issues
-
 - Ensure your MongoDB connection string is correct
 - Check if your IP address is whitelisted (for MongoDB Atlas)
 - Verify your database credentials
 
 ### Authentication Issues
-
 - Clear browser cookies and try again
 - Check that JWT_SECRET is set in environment variables
 - Verify token expiration settings
-
-## License
-
-This project is created for educational purposes.
-
-## Contact
-
-For questions or issues, please open an issue in the repository.
-

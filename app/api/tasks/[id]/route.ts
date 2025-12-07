@@ -23,18 +23,12 @@ export async function GET(
     // Check authentication
     const userId = getUserIdFromRequest(request);
     if (!userId) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Validate task ID
     if (!ObjectId.isValid(params.id)) {
-      return NextResponse.json(
-        { error: "Invalid task ID" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid task ID" }, { status: 400 });
     }
 
     // Connect to MongoDB
@@ -49,10 +43,7 @@ export async function GET(
     });
 
     if (!task) {
-      return NextResponse.json(
-        { error: "Task not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 
     // Return task
@@ -90,18 +81,12 @@ export async function PUT(
     // Check authentication
     const userId = getUserIdFromRequest(request);
     if (!userId) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Validate task ID
     if (!ObjectId.isValid(params.id)) {
-      return NextResponse.json(
-        { error: "Invalid task ID" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid task ID" }, { status: 400 });
     }
 
     // Parse request body
@@ -130,10 +115,7 @@ export async function PUT(
     });
 
     if (!existingTask) {
-      return NextResponse.json(
-        { error: "Task not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 
     // Update task
@@ -188,18 +170,12 @@ export async function DELETE(
     // Check authentication
     const userId = getUserIdFromRequest(request);
     if (!userId) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     // Validate task ID
     if (!ObjectId.isValid(params.id)) {
-      return NextResponse.json(
-        { error: "Invalid task ID" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Invalid task ID" }, { status: 400 });
     }
 
     // Connect to MongoDB
@@ -214,10 +190,7 @@ export async function DELETE(
     });
 
     if (!existingTask) {
-      return NextResponse.json(
-        { error: "Task not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Task not found" }, { status: 404 });
     }
 
     // Delete task
@@ -238,4 +211,3 @@ export async function DELETE(
     );
   }
 }
-
