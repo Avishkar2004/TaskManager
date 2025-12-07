@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Heart } from "lucide-react";
+import { Github, Linkedin, Heart, Code2 } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -28,7 +28,20 @@ export default function Footer() {
           </div>
 
           {/* Right Section - Social Links */}
-          <div className="flex items-center gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              href="https://github.com/Avishkar2004/TaskManager"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-900 hover:to-black text-white border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:shadow-lg hover:shadow-gray-900/50 hover:-translate-y-0.5"
+              aria-label="GitHub Repository"
+            >
+              <Code2 className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="text-sm font-medium hidden sm:inline">
+                Repository
+              </span>
+              <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-gray-800/0 to-gray-900/0 group-hover:from-gray-800/10 group-hover:to-gray-900/10 transition-all duration-300" />
+            </Link>
             <Link
               href="https://github.com/Avishkar2004"
               target="_blank"
